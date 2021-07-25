@@ -11,3 +11,7 @@
 * codes: [activatedgeek/LeNet-5](https://github.com/activatedgeek/LeNet-5)
 
 * LeNet-5网络框架学习笔记及仿真: [LeNet-5网络仿真实现](https://www.madao33.com/post/8/)
+
+## AlexNet
+
+* paper: [Krizhevsky A , Sutskever I , Hinton G . ImageNet Classification with Deep Convolutional Neural Networks[J]. Advances in neural information processing systems, 2012, 25(2).](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
