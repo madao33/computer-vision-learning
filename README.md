@@ -6,7 +6,8 @@
 
 ## LeNet-5
 
-paper: [Lecun Y ,  Bottou L . Gradient-based learning applied to document recognition[J]. Proceedings of the IEEE, 1998, 86(11):2278-2324.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=726791)
+* paper: [Lecun Y ,  Bottou L . Gradient-based learning applied to document recognition[J]. Proceedings of the IEEE, 1998, 86(11):2278-2324.](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=726791)
 
-codes: [activatedgeek/LeNet-5](https://github.com/activatedgeek/LeNet-5)
+* codes: [activatedgeek/LeNet-5](https://github.com/activatedgeek/LeNet-5)
 
+* LeNet-5网络框架学习笔记及仿真: [LeNet-5网络仿真实现](https://www.madao33.com/post/8/)
