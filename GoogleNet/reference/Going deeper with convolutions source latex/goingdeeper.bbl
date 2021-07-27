@@ -1,0 +1,140 @@
+\begin{thebibliography}{10}
+
+\bibitem{knowyourmeme}
+Know your meme: We need to go deeper.
+\newblock \url{http://knowyourmeme.com/memes/we-need-to-go-deeper}.
+\newblock Accessed: 2014-09-15.
+
+\bibitem{arora2013bounds}
+Sanjeev Arora, Aditya Bhaskara, Rong Ge, and Tengyu Ma.
+\newblock Provable bounds for learning some deep representations.
+\newblock {\em CoRR}, abs/1310.6343, 2013.
+
+\bibitem{catalyurek2010sparse}
+\"{U}mit~V. \c{C}ataly\"{u}rek, Cevdet Aykanat, and Bora U\c{c}ar.
+\newblock On two-dimensional sparse matrix partitioning: Models, methods, and a
+  recipe.
+\newblock {\em SIAM J. Sci. Comput.}, 32(2):656--683, February 2010.
+
+\bibitem{dean2012large}
+Jeffrey Dean, Greg Corrado, Rajat Monga, Kai Chen, Matthieu Devin, Mark Mao,
+  Marc'aurelio Ranzato, Andrew Senior, Paul Tucker, Ke~Yang, Quoc~V. Le, and
+  Andrew~Y. Ng.
+\newblock Large scale distributed deep networks.
+\newblock In P.~Bartlett, F.c.n. Pereira, C.j.c. Burges, L.~Bottou, and K.q.
+  Weinberger, editors, {\em Advances in Neural Information Processing Systems
+  25}, pages 1232--1240. 2012.
+
+\bibitem{erhan2014scalable}
+Dumitru Erhan, Christian Szegedy, Alexander Toshev, and Dragomir Anguelov.
+\newblock Scalable object detection using deep neural networks.
+\newblock In {\em Computer Vision and Pattern Recognition, 2014. CVPR 2014.
+  IEEE Conference on}, 2014.
+
+\bibitem{girshick2014rich}
+Ross~B. Girshick, Jeff Donahue, Trevor Darrell, and Jitendra Malik.
+\newblock Rich feature hierarchies for accurate object detection and semantic
+  segmentation.
+\newblock In {\em Computer Vision and Pattern Recognition, 2014. CVPR 2014.
+  IEEE Conference on}, 2014.
+
+\bibitem{hinton2012dropout}
+Geoffrey~E. Hinton, Nitish Srivastava, Alex Krizhevsky, Ilya Sutskever, and
+  Ruslan Salakhutdinov.
+\newblock Improving neural networks by preventing co-adaptation of feature
+  detectors.
+\newblock {\em CoRR}, abs/1207.0580, 2012.
+
+\bibitem{howard2013improvements}
+Andrew~G. Howard.
+\newblock Some improvements on deep convolutional neural network based image
+  classification.
+\newblock {\em CoRR}, abs/1312.5402, 2013.
+
+\bibitem{krizhevsky2012imagenet}
+Alex Krizhevsky, Ilya Sutskever, and Geoff Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In {\em Advances in Neural Information Processing Systems 25}, pages
+  1106--1114, 2012.
+
+\bibitem{lecun1989backprop}
+Y.~LeCun, B.~Boser, J.~S. Denker, D.~Henderson, R.~E. Howard, W.~Hubbard, and
+  L.~D. Jackel.
+\newblock Backpropagation applied to handwritten zip code recognition.
+\newblock {\em Neural Comput.}, 1(4):541--551, December 1989.
+
+\bibitem{lecun1998gradient}
+Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner.
+\newblock Gradient-based learning applied to document recognition.
+\newblock {\em Proceedings of the IEEE}, 86(11):2278--2324, 1998.
+
+\bibitem{lin2013nin}
+Min Lin, Qiang Chen, and Shuicheng Yan.
+\newblock Network in network.
+\newblock {\em CoRR}, abs/1312.4400, 2013.
+
+\bibitem{polyak1992}
+B.~T. Polyak and A.~B. Juditsky.
+\newblock Acceleration of stochastic approximation by averaging.
+\newblock {\em SIAM J. Control Optim.}, 30(4):838--855, July 1992.
+
+\bibitem{sermanet2013overfeat}
+Pierre Sermanet, David Eigen, Xiang Zhang, Micha{\"{e}}l Mathieu, Rob Fergus,
+  and Yann LeCun.
+\newblock Overfeat: Integrated recognition, localization and detection using
+  convolutional networks.
+\newblock {\em CoRR}, abs/1312.6229, 2013.
+
+\bibitem{serre2007robust}
+Thomas Serre, Lior Wolf, Stanley~M. Bileschi, Maximilian Riesenhuber, and
+  Tomaso Poggio.
+\newblock Robust object recognition with cortex-like mechanisms.
+\newblock {\em {IEEE} Trans. Pattern Anal. Mach. Intell.}, 29(3):411--426,
+  2007.
+
+\bibitem{song2014scaling}
+Fengguang Song and Jack Dongarra.
+\newblock Scaling up matrix computations on shared-memory manycore systems with
+  1000 cpu cores.
+\newblock In {\em Proceedings of the 28th ACM International Conference on
+  Supercomputing}, ICS '14, pages 333--342, New York, NY, USA, 2014. ACM.
+
+\bibitem{sutskever2013momentum}
+Ilya Sutskever, James Martens, George~E. Dahl, and Geoffrey~E. Hinton.
+\newblock On the importance of initialization and momentum in deep learning.
+\newblock In {\em Proceedings of the 30th International Conference on Machine
+  Learning, {ICML} 2013, Atlanta, GA, USA, 16-21 June 2013}, volume~28 of {\em
+  {JMLR} Proceedings}, pages 1139--1147. JMLR.org, 2013.
+
+\bibitem{szegedy2013deep}
+Christian Szegedy, Alexander Toshev, and Dumitru Erhan.
+\newblock Deep neural networks for object detection.
+\newblock In Christopher J.~C. Burges, L{\'{e}}on Bottou, Zoubin Ghahramani,
+  and Kilian~Q. Weinberger, editors, {\em Advances in Neural Information
+  Processing Systems 26: 27th Annual Conference on Neural Information
+  Processing Systems 2013. Proceedings of a meeting held December 5-8, 2013,
+  Lake Tahoe, Nevada, United States.}, pages 2553--2561, 2013.
+
+\bibitem{toshev2013deep}
+Alexander Toshev and Christian Szegedy.
+\newblock Deeppose: Human pose estimation via deep neural networks.
+\newblock {\em CoRR}, abs/1312.4659, 2013.
+
+\bibitem{sande2011search}
+Koen E.~A. van~de Sande, Jasper R.~R. Uijlings, Theo Gevers, and Arnold W.~M.
+  Smeulders.
+\newblock Segmentation as selective search for object recognition.
+\newblock In {\em Proceedings of the 2011 International Conference on Computer
+  Vision}, ICCV '11, pages 1879--1886, Washington, DC, USA, 2011. IEEE Computer
+  Society.
+
+\bibitem{zeiler2014visualizing}
+Matthew~D. Zeiler and Rob Fergus.
+\newblock Visualizing and understanding convolutional networks.
+\newblock In David~J. Fleet, Tom{\'{a}}s Pajdla, Bernt Schiele, and Tinne
+  Tuytelaars, editors, {\em Computer Vision - {ECCV} 2014 - 13th European
+  Conference, Zurich, Switzerland, September 6-12, 2014, Proceedings, Part
+  {I}}, volume 8689 of {\em Lecture Notes in Computer Science}, pages 818--833.
+  Springer, 2014.
+
+\end{thebibliography}

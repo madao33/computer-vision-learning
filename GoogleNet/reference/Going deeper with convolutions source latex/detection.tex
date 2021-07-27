@@ -1,0 +1,52 @@
+\section{ILSVRC 2014 Detection Challenge Setup and Results}
+
+The ILSVRC detection task is to produce bounding boxes around objects in images among 200 possible classes. Detected objects count as correct if they match the class of the groundtruth and their bounding boxes overlap by at least 50\% (using the Jaccard index). Extraneous detections count as false positives and are penalized. Contrary to the classification task, each image may contain many objects or none, and their scale may vary from large to tiny. Results are reported using the mean average precision (mAP).
+
+The approach taken by GoogLeNet for detection is similar to the R-CNN by \cite{girshick2014rich}, but is augmented with the Inception model as the region classifier. Additionally, the region proposal step is improved by combining the Selective Search~\cite{sande2011search} approach with multi-box~\cite{erhan2014scalable} predictions for higher object bounding box recall. In order to cut down the number of false positives, the superpixel size was increased by $2\times$. This halves the proposals coming from the selective search algorithm. We added back 200 region proposals coming from multi-box~\cite{erhan2014scalable} resulting, in total, in about 60\% of the proposals used by \cite{girshick2014rich}, while increasing the coverage from 92\% to 93\%. The overall effect of cutting the number of proposals with increased coverage is a 1\% improvement of the mean average precision for the single model case. Finally, we use an ensemble of 6 ConvNets when classifying each region which improves results from ~40\% to 43.9\% accuracy. Note that contrary to R-CNN, we did not use bounding box regression due to lack of time.
+
+\begin{table}
+\centering
+\begin{tabular}[H]{|l||l|l|l|l|c|c|}
+\hline
+{\bf Team} & {\bf Year} & {\bf Place} & {\bf mAP} & {\bf external data} & {\bf ensemble} & {\bf approach} \\
+\hline
+UvA-Euvision & 2013 & 1st & $22.6\%$ & none & ? & Fisher vectors \\
+\hline
+Deep Insight & 2014 & 3rd & $40.5\%$ & ImageNet $1$k & 3 & CNN \\
+\hline
+CUHK DeepID-Net & 2014 & 2nd & $40.7\%$ & ImageNet $1$k & ? & CNN \\
+\hline
+GoogLeNet & 2014 & 1st & $43.9\%$ & ImageNet $1$k & 6 & CNN\\
+\hline
+\end{tabular}
+\caption{Detection performance}
+\label{detfinal}
+\end{table}
+
+We first report the top detection results and show the progress since the first edition of the detection task. Compared to the 2013 result, the accuracy has almost doubled. The top performing teams all use Convolutional Networks. 
+We report the official scores in Table \ref{detfinal} and common strategies for each team: the use of external data, ensemble models or contextual models. The external data is typically the ILSVRC12 classification data for pre-training a model that is later refined on the detection data. Some teams also mention the use of the localization data. Since a good portion of the localization task bounding boxes are not included in the detection dataset, one can pre-train a general bounding box regressor with this data the same way classification is used for pre-training. The GoogLeNet entry did not use the localization data for pretraining.
+
+\begin{table}
+\centering
+\begin{tabular}[H]{|l||l|c|c|}
+\hline
+{\bf Team} & {\bf\ \ mAP\ \ } & {\bf Contextual model} & {\bf Bounding box regression} \\
+\hline
+Trimps-Soushen & $31.6\%$ & no & ? \\
+\hline
+Berkeley Vision &  $34.5\%$ & no & yes \\
+\hline
+UvA-Euvision &  $35.4\%$ & ? & ? \\
+\hline
+CUHK DeepID-Net2 & $37.7\%$ & no & ? \\
+\hline
+GoogLeNet & $38.02\%$ & no & no \\
+\hline
+Deep Insight & $40.2\%$ & yes & yes \\
+\hline
+\end{tabular}
+\caption{Single model performance for detection}
+\label{detsinglemodel}
+\end{table}
+
+In Table \ref{detsinglemodel}, we compare results using a single model only. The top performing model is by Deep Insight and surprisingly only improves by 0.3 points with an ensemble of 3 models while the GoogLeNet obtains significantly stronger results with the ensemble.

@@ -1,0 +1,64 @@
+\section{ILSVRC 2014 Classification Challenge Setup and Results}
+
+The ILSVRC 2014 classification challenge involves the task of classifying the image into one of 1000 leaf-node categories in the Imagenet hierarchy. There are about 1.2 million images for training, 50,000 for validation and 100,000 images for testing. Each image is associated with one ground truth category, and performance is measured based on the highest scoring classifier predictions. Two numbers are usually reported: the top-1 accuracy rate, which compares the ground truth against the first predicted class, and the top-5 error rate, which compares the ground truth against the first 5 predicted classes: an image is deemed correctly classified if the ground truth is among the top-5, regardless of its rank in them. The challenge uses the top-5 error rate for ranking purposes.
+
+We participated in the challenge with no external data used for training. In addition to the training techniques aforementioned in this paper, we adopted a set of techniques during testing to obtain a higher performance, which we elaborate below.
+
+\begin{enumerate}
+\item We independently trained 7 versions of the same GoogLeNet model (including one wider version), and performed ensemble prediction with them. These models were trained with the same initialization (even with the same initial weights, mainly because of an oversight) and learning rate policies, and they only differ in sampling methodologies and the random order in which they see input images.
+\item During testing, we adopted a more aggressive cropping approach than that of Krizhevsky et al.~\cite{krizhevsky2012imagenet}. Specifically, we resize the image to 4 scales where the shorter dimension (height or width) is 256, 288, 320 and 352 respectively, take the left, center and right square of these resized images (in the case of portrait images, we take the top, center and bottom squares). For each square, we then take the 4 corners and the center $224{\times}224$ crop as well as the square resized to $224{\times}224$, and their mirrored versions. This results in $4{\times}3{\times}6{\times}2=144$ crops per image. A similar approach was used by Andrew Howard~\cite{howard2013improvements} in the previous year's entry, which we empirically verified to perform slightly worse than the proposed scheme. We note that such aggressive cropping may not be necessary in real applications, as the benefit of more crops becomes marginal after a reasonable number of crops are present (as we will show later on).
+\item The softmax probabilities are averaged over multiple crops and over all the individual classifiers to obtain the final prediction. In our experiments we analyzed alternative approaches on the validation data, such as max pooling over crops and averaging over classifiers, but they lead to inferior performance than the simple averaging.
+\end{enumerate}
+
+In the remainder of this paper, we analyze the multiple factors that contribute to the overall performance of the final submission.
+
+\begin{table}
+\centering
+\begin{tabular}[H]{|l||l|l|l|l|}
+\hline
+{\bf Team} & {\bf Year} & {\bf Place} & {\bf Error (top-5)} & {\bf Uses external data} \\
+\hline\hline
+SuperVision & 2012 & 1st & $16.4\%$ & no \\
+\hline
+SuperVision & 2012 & 1st & $15.3\%$ & Imagenet $22$k \\
+\hline
+Clarifai & 2013 & 1st & $11.7\%$ & no \\
+\hline
+Clarifai & 2013 & 1st & $11.2\%$ &  Imagenet $22$k \\
+\hline
+MSRA & 2014 & 3rd & $7.35\%$ & no \\
+\hline
+VGG & 2014 & 2nd & $7.32\%$ & no \\
+\hline
+GoogLeNet & 2014 & 1st & $6.67\%$ & no\\
+\hline
+\end{tabular}
+\caption{Classification performance}
+\label{classfinal}
+\end{table}
+Our final submission in the challenge obtains a top-5 error of 6.67\% on both the validation and testing data, ranking the first among other participants. This is a 56.5\% relative reduction compared to the SuperVision approach in 2012, and about 40\% relative reduction compared to the previous year's best approach (Clarifai), both of which used external data for training the classifiers. The following table shows the statistics of some of the top-performing approaches.
+
+\begin{table}
+\centering
+\begin{tabular}[H]{|l||l|l|l|l|}
+\hline
+{\bf Number of models} & {\bf Number of Crops} & {\bf Cost} & {\bf Top-5 error} & {\bf compared to base}\\
+\hline
+1 & 1 & 1 & $10.07\%$ & base \\
+\hline
+1 & 10 & 10 & $9.15\%$ & -0.92\%\\
+\hline
+1 & 144 & 144 & $7.89\%$ & -2.18\% \\
+\hline
+7 & 1 & 7 & $8.09\%$ & -1.98\% \\
+\hline
+7 & 10 & 70 & $7.62\%$ & -2.45\% \\
+\hline
+7 & 144 & 1008 & $6.67\%$ & -3.45\% \\
+\hline
+\end{tabular}
+\caption{GoogLeNet classification performance break down}
+\label{classbreakdown}
+\end{table}
+
+We also analyze and report the performance of multiple testing choices, by varying the number of models and the number of crops used when predicting an image in the following table. When we use one model, we chose the one with the lowest top-1 error rate on the validation data. All numbers are reported on the validation dataset in order to not overfit to the testing data statistics.
