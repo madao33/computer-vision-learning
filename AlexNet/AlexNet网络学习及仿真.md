@@ -50,7 +50,7 @@ f(x) = \max{(0, x)}
 $$
 带有ReLUs的深度卷积神经网络比带有tanh单元的同类网络训练速度快几倍。下图展示了特定的四层卷积网络，在CIFAR-10数据集上达到25%训练误差所需的迭代次数。
 
-![](imgs/fig1.png)
+![](https://www.madao33.com/media/AlexNet网络学习及仿真/fig1.png)
 
 如果使用传统的饱和神经元模型，那么要训练这个大的神经网络将会是非常困难的。
 
@@ -80,7 +80,7 @@ $$
 
 如下图所示，总体的架构是包含八个层：前五个是卷积层（convolutional layer），其余三个是全连接层（fully-connected layer）。最后一个全连接层的输出经过一个1000路的 softmax 函数，产生1000个分类。
 
-![](imgs/fig2.png)
+![](https://www.madao33.com/media/AlexNet网络学习及仿真/fig2.png)
 
 各个层之间的关系大致的描述：
 
@@ -150,7 +150,7 @@ $$
 
 少量的权重衰减对模型的学习很重要，权重衰减不仅仅是一个正则化，它减少了模型的训练误差，权重 $w$ 的更新规则为：
 $$
-v_{i+1} := 0.9 \cdot v_i - 0.0005 \cdot \epsilon \cdot w_i - \epsilon \cdot \Big < \frac{\partial L}{\partial w}|_{w_i} \Big>_{D_i} \\
+v_{i+1} := 0.9 \cdot v_i - 0.0005 \cdot \epsilon \cdot w_i - \epsilon \cdot \Big< \frac{\partial L}{\partial w}|_{w_i} \Big>_{D_i}\\
 w_{i+1} := w_i + v_{i+1}
 $$
 其中 $i$ 是迭代索引（iteration index），$v$ 是动量变量，$\epsilon$ 是学习率，$\big <\frac{\partial L}{\partial w}|_{w_i} \big>_{D_i}$ 是第 $i$ 个块 $D_i$ 对 $w$  求导的平均值。
@@ -186,11 +186,11 @@ ILSVRC-2012竞赛，AlexNet获得冠军，远远超过第二名SIFT+FVs，结果
 
 #### 6.1 定性评估（Qualitative Evaluations）
 
-<img src="imgs/fig3.png" style="zoom:50%;" />
+<img src="https://www.madao33.com/media/AlexNet网络学习及仿真/fig3.png" style="zoom:50%;" />
 
 上图展示了网络的两个数据连接层学到的各种频率和方法选择性的卷积核，以及彩色斑点。请注意两个图形处理器表现出的专门化，这是第3.5节中描述的受限连接的结果。GPU 1上的内核在很大程度上与颜色无关，而GPU 2上的内核在很大程度上是特定于颜色的。这种专门化发生在每次运行期间，并且独立于任何特定的随机权重初始化。
 
-![](imgs/fig4.png)
+![](https://www.madao33.com/media/AlexNet网络学习及仿真/fig4.png)
 
 在图4的左面板中，我们通过计算八张测试图像上的前5名预测，定性地评估了网络所学到的东西。请注意，即使是偏离中心的物体，如左上角的螨虫，也可以被网识别。大部分前5名的标签看起来都很合理。例如，只有其他类型的猫被认为是豹子（leopard）的合理标签。在某些情况下(格栅-grille、樱桃-cherry)，照片的预期焦点确实模糊不清。
 
