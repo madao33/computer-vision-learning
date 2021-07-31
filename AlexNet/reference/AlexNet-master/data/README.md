@@ -1,1 +1,0 @@
-dowload imagenet data here and extract it.
