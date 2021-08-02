@@ -204,11 +204,7 @@ ILSVRC-2012竞赛，AlexNet获得冠军，远远超过第二名SIFT+FVs，结果
 
 ## AlexNet仿真实现
 
-
-
-
-
-
+仿真实现见对应codes文件夹下markdown文件及代码文件
 
 ## 参考文献
 
