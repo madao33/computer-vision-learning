@@ -15,3 +15,22 @@
 ## AlexNet
 
 * paper: [Krizhevsky A , Sutskever I , Hinton G . ImageNet Classification with Deep Convolutional Neural Networks[J]. Advances in neural information processing systems, 2012, 25(2).](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
+
+* codes: [Sowndharya206/alexnet](https://github.com/Sowndharya206/alexnet)
+
+* 个人笔记：
+* [AlexNet网络学习及仿真](https://www.madao33.com/post/10/)
+* [AlexNet基于MNIST数据集的代码实现](https://www.madao33.com/post/12/)
+
+## GoogleNet
+
+* paper: [Szegedy C ,  Liu W ,  Jia Y , et al. Going Deeper with Convolutions[J]. IEEE Computer Society, 2014.](https://arxiv.org/pdf/1409.4842.pdf)
+
+* codes: [hawrot/image-classification-pytorch](https://github.com/hawrot/image-classification-pytorch)
+
+> GoogLeNet 因为目前没有GPU，训练没有完成
+
+## VGGNet
+
+* paper: [Simonyan K ,  Zisserman A . Very Deep Convolutional Networks for Large-Scale Image Recognition[J]. Computer Science, 2014.](https://arxiv.org/pdf/1409.1556.pdf)
+
