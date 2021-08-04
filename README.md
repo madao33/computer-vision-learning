@@ -25,10 +25,10 @@
 ## GoogleNet
 
 * paper: [Szegedy C ,  Liu W ,  Jia Y , et al. Going Deeper with Convolutions[J]. IEEE Computer Society, 2014.](https://arxiv.org/pdf/1409.4842.pdf)
-
 * codes: [hawrot/image-classification-pytorch](https://github.com/hawrot/image-classification-pytorch)
-
+* 个人笔记: [GoogLeNet学习笔记](https://www.madao33.com/post/13/)
 > GoogLeNet 因为目前没有GPU，训练没有完成
+  
 
 ## VGGNet
 
