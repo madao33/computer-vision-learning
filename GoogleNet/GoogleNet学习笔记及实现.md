@@ -86,10 +86,6 @@ ILSVRC 2014的图像和之前ILSVRC 2012有一定相似之处：
 
 最终的成绩是top-5 error为6.68%
 
-## 代码实现
-
-基于MNIST数据集的仿真实现可以参考codes文件夹下的内容
-
 ## 参考文献
 
 <div id="refer-1"></div>
