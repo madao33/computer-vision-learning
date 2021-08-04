@@ -33,4 +33,8 @@
 ## VGGNet
 
 * paper: [Simonyan K ,  Zisserman A . Very Deep Convolutional Networks for Large-Scale Image Recognition[J]. Computer Science, 2014.](https://arxiv.org/pdf/1409.1556.pdf)
+* codes: [jays0606/VGGNet](https://github.com/jays0606/VGGNet)
+* 个人笔记: [VGGNet学习笔记及仿真](https://www.madao33.com/post/14/)
+
+
 
