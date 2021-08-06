@@ -2,7 +2,7 @@
 
 ## 前言
 
-深度残差网络（Deep Residual Network）是cnn机器视觉史上的一件里程碑的事件，在2015年，ResNet在ImageNet和COCO数据集上获得了非常优秀的成绩。如下图所示：
+深度残差网络（Deep Residual Network）是cnn机器视觉史上的一件里程碑的事件，在2015年，ResNet在ImageNet和COCO数据集上获得了非常优秀的成绩。如下所示：
 
 * ImageNet Classification: “Ultra-deep”`152-layer` nets
 * ImageNet Detection: `16%` better than 2nd
