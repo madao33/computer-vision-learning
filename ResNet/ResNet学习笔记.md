@@ -73,13 +73,55 @@ $$
 
 ## 网络架构
 
-<div id="fig-3"></div>
+<div id="fig3"></div>
 
 ![](imgs/fig3.png)
 
-网络结构如[figure3](#fig-3)所示，从左到右分别是VGG-19、34层不带残差的plain net、34层的残差网络
+网络结构如[figure3](#fig3)所示，从左到右分别是VGG-19（196亿次浮点运算）、34层不带残差的plain net（36亿次浮点运算）、34层的残差网络（36亿次浮点运算）
 
+#### plain network
 
+* 主要受到VGGNet的启发，遵循两个简单设计规则：
+  * 对于相同的输出特征图大小，层具有相同数量的滤波器
+  * 如果特征图大小减半，则过滤器的数量加倍
+* 步长为2的卷积层直接执行下采样
+* 网络结尾是一个整体平均池化层和一个1000路的全连接层和softmax函数
+* 总体的带权重的层是34层
+* 该模型比VGGNet相比具有更少的滤波器和更低的复杂度，plain net 有36亿次浮点运算，而VGG-19有196亿次浮点运算，前者是后者的18%
+
+#### Residual Network
+
+* 在plain net网络中引入了**跳接（shortcut conncetions）**，将其转换为了对应的残差版本
+* 跳接引入有两种形式：
+  * 实线：跳接引入的输入和输出维度相同，可以直接相加，如[公式1](#eqn-1)
+  * 虚线：引入的维度增加时，可以有两种方式
+    * 跳接仍然执行恒等映射，**填充零**元素保证维度相同
+    * 利用[公式2](#eqn-2)对跳接进行**投影**来匹配维度
+
+## 实现细节
+
+* 遵循AlexNet数据预处理的方法，对图像进行裁剪和水平翻转得到224 x 224的图像，然后减去每个像素的平均值[<sup>[6]</sup>](#ref-6)
+* 每次卷积之后和激活函数之前采用批处理标准化（batch normalization, BN）
+* 批大小（mini-batch ）为256
+* 学习率（learning rate） 从 0.1 开始，当误差平稳时，学习率除以10，模型训练了 $60 \times 10^4$ 次迭代
+* 权重衰减（weight decay）0.0001，动量（momentum）为 0.9
+* 网络中没有使用到dropout
+
+## 实验结果
+
+### ImageNet分类结果
+
+对比了18层和34层的plain net以及对应的ResNet，可以看到如[figure4](#fig-4)所示，**残差结果确实解决了退化问题**
+
+<div id="fig-4"></div>
+
+![](imgs/fig4.png)
+
+对比了ImageNet数据集的测试结果汇总如[表3](#table-3)所示
+
+<div id="table-3"></div>
+
+<img src="imgs/table3.png" style="zoom:80%;" />
 
 
 
@@ -104,4 +146,8 @@ $$
 <div id="ref-5"></div>
 
 - [5] [知乎文章：CVPR2016:ResNet 从根本上解决深度网络退化问题](https://zhuanlan.zhihu.com/p/106764370)
+
+<div id="ref-6"></div>
+
+- [6] [Krizhevsky A , Sutskever I , Hinton G . ImageNet Classification with Deep Convolutional Neural Networks[J]. Advances in neural information processing systems, 2012, 25(2).](https://proceedings.neurips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf)
 
