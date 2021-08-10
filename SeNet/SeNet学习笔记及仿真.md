@@ -8,15 +8,21 @@ SENet全称Squeeze-and-Excitation Networks，中文名可以翻译为挤压和�
 
 ## SE block
 
-SENet提出的动机是将通道之间的关系结合起来，于是引出了一个*Squeeze-and-excitation*（SE）块，它的目的就是**通过显式建模网络卷积特征的信道之间的相互依赖性来提高网络表征的质量**。SE块的机制也可以说是**通过学习全局信息来选择性地强调有用的特征和抑制不太有用的特征**。
-
-SENet块如[fig1](#fig-1)所示，对于
+SENet提出的动机是将通道之间的关系结合起来，于是引出了一个*Squeeze-and-excitation*（SE）块[<sup>[1]</sup>](#ref-1)，它的目的就是**通过显式建模网络卷积特征的信道之间的相互依赖性来提高网络表征的质量**。SE块的机制也可以说是**通过学习全局信息来选择性地强调有用的特征和抑制不太有用的特征**，SENet块如[fig1](#fig-1)所示。
 
 <div id="fig-1"></div>
 
 ![](imgs/fig1.png)
 
+SE模块可以看作是一个计算单元，用 $F_{tr}$ 表示，可以将输入 $X \in \R^{H' \times W' \times C'}$​ 映射为特征图 $U \in \R^{H \times W \times C}$​。以下的符号中，$F_{tr}$​ 表示卷积操作，$\bold{V}=[V_1, V_2, \dots, V_C]$ 来表示学习到的一组滤波器核，其中 $V_c$ 表示的是第 $c$​ 个滤波器的参数，所以输出可以表示为 $\bold{U}=[U_1, U_2, \dots, U_C]$​​，其中：
 
+<div id="eqn-1"></div>
+
+$$
+U_c=V_c * \bold{X}=\sum_{s=1}^{C'}V_C^s * X^s
+$$
+
+[公式1](#eqn-1)中 $*$ 表示的是卷积操作，$V_c=[V_c^1, V_c^2, \dots, V_c^{C'}], \quad \bold{X}=[X^1, X^2, \dots, X^{C'}]$ 以及 $u_c \in \R^{H \times W}$， 
 
 
 
