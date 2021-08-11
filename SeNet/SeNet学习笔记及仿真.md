@@ -110,6 +110,10 @@ SE模块可以很容易地引入到其他网络中，为了验证SE模块的效�
 
 可以看到所有的网络在加入SE模块后分类准确度均有一定的提升，为了实际地体会SE模块，之后就是尝试仿真实现，更加深入的了解其网络架构和效果
 
+## SE模块仿真
+
+以下代码参考的是github代码[<sup>[4]</sup>](#ref-4)
+
 ## 参考文献
 
 <div id="ref-1"></div>
@@ -124,3 +128,6 @@ SE模块可以很容易地引入到其他网络中，为了验证SE模块的效�
 
 - [3] [知乎文章：最后一届ImageNet冠军模型：SENet](https://zhuanlan.zhihu.com/p/65459972/)
 
+<div id="ref-4"></div>
+
+- [4] [roshaan7zafar/SENet_Keras](https://github.com/roshaan7zafar/SENet_Keras)
