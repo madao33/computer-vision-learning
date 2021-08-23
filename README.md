@@ -36,5 +36,13 @@
 * codes: [jays0606/VGGNet](https://github.com/jays0606/VGGNet)
 * 个人笔记: [VGGNet学习笔记及仿真](https://www.madao33.com/post/14/)
 
+## ResNet
 
+* paper: [He K ,  Zhang X ,  Ren S , et al. Deep Residual Learning for Image Recognition[J]. 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016.](https://arxiv.org/pdf/1512.03385.pdf)
+* codes: [Bingmang/pytorch-cifar10-notebook](https://github.com/Bingmang/pytorch-cifar10-notebook)
+* 个人笔记：[ResNet学习笔记及仿真](https://www.madao33.com/post/15/)
 
+## SeNet
+* paper: [Hu J, Shen L, Sun G. Squeeze-and-excitation networks[J]. arXiv preprint arXiv:1709.01507, 2017, 7.](https://arxiv.org/pdf/1709.01507.pdf)
+* codes: [JYPark09/SENet-Pytorch](https://github.com/JYPark09/SENet-PyTorch)
+* 个人学习笔记：[SeNet学习笔记及仿真]
