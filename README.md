@@ -46,3 +46,8 @@
 * paper: [Hu J, Shen L, Sun G. Squeeze-and-excitation networks[J]. arXiv preprint arXiv:1709.01507, 2017, 7.](https://arxiv.org/pdf/1709.01507.pdf)
 * codes: [JYPark09/SENet-Pytorch](https://github.com/JYPark09/SENet-PyTorch)
 * 个人学习笔记：[SeNet学习笔记及仿真](https://www.madao33.com/post/16/)
+
+## DenseNet
+* paper: [Huang G ,  Liu Z ,  Laurens V , et al. Densely Connected Convolutional Networks[J]. IEEE Computer Society, 2016.](https://arxiv.org/pdf/1608.06993.pdf)
+* codes: [gpleiss/efficient_densenet_pytorch](https://github.com/gpleiss/efficient_densenet_pytorch)
+* 个人学习笔记：[DenseNet学习笔记及仿真](https://www.madao33.com/post/20/)
