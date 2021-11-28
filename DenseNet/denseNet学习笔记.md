@@ -13,7 +13,7 @@
 
 <div id="fig-1"></div>
 
-![](img/fig1.png)
+![](https://www.madao33.com/media/DenseNet学习笔记及仿真/fig1.png)
 
 ## DenseNet 架构
 
@@ -55,7 +55,7 @@ $H_l(\cdot)$ 表示的是三个连续的操作：
 
 <div id="fig-2"></div>
 
-![](img/fig2.png)
+![](https://www.madao33.com/media/DenseNet学习笔记及仿真/fig2.png)
 
 将`dense block`之间的层叫做过渡层，在这里做卷积和池化操作。过渡层包含批量归一层和 1 x 1 卷积层，紧跟一个 2 x 2 平均池化层
 
@@ -91,7 +91,7 @@ $H_l(\cdot)$ 表示的是三个连续的操作：
 
 <div id="tab-1"></div>
 
-![](img/tab1.png)
+![](https://www.madao33.com/media/DenseNet学习笔记及仿真/tab1.png)
 
 ## 实验
 
@@ -138,17 +138,17 @@ $H_l(\cdot)$ 表示的是三个连续的操作：
 
 <div id="tab-2"></div>
 
-![](img/tab2.png)
+![](https://www.madao33.com/media/DenseNet学习笔记及仿真/tab2.png)
 
 在**ImageNet**分类的结果和`ResNet`的对比如[table 3](#tab-3)和[Figure 4](#fig-4)所示。
 
 <div id="tab-3"></div>
 
-<img src="img/tab3.png" style="zoom:50%;" />
+<img src="https://www.madao33.com/media/DenseNet学习笔记及仿真/tab3.png" style="zoom:50%;" />
 
 <div id="fig-4"></div>
 
-![](img/fig4.png)
+![](https://www.madao33.com/media/DenseNet学习笔记及仿真/fig4.png)
 
 ## 实现
 
