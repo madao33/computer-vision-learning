@@ -61,11 +61,94 @@ $H_l(\cdot)$ 表示的是三个连续的操作：
 
 ### Growth rate
 
-如果每个函数 $H_l$ 产生 $k$ 个特征图，之后的 $l^{th}$ 层有 $k_0 + k \times (l-1)$ 个输入特征图，其中 $k_0$ 表示输入层的通道数。`DenseNet` 和现有的网络架构最重要的区别是`DenseNet`层数很窄，仅有 $k=12$。将 $k$ 定义为网络的增长率
+如果每个函数 $H_l$ 产生 $k$ 个特征图，之后的 $l^{th}$ 层有 $k_0 + k \times (l-1)$ 个输入特征图，其中 $k_0$ 表示输入层的通道数。`DenseNet` 和现有的网络架构最重要的区别是`DenseNet`层数很窄，仅有 $k=12$。将 $k$ 定义为网络的增长率。
 
+### Bottleneck layers
 
+尽管每一层都只产生 $k$ 个输出特征图，仍然有许多输入。`ResNet`中在 3 x 3卷积前使用 1 x 1 卷积作为`bottleneck`层减少输入特征图的数量，可以提高计算效率。使用了`Bottleneck`的网络命名为`DenseNet-B`。
 
+### Compression
 
+为了进一步使模型更加紧凑，在过渡层减少特征图的数量。如果`dense block`包括 $m$ 个特征图，让之后的过渡层产生 $[\theta_m]$ 输出特征图，其中 $0 < \theta \leq 1$ 表示压缩因子。如果 $\theta = 1$，表示特征图数量经过过渡层保持不变。在试验中设置 $\theta=0.5$。将使用了`bottleneck`和过渡层设置$\theta<1$的网络命名为`DenseNet-BC`
+
+### 实现细节
+
+在所有除了`ImageNet`的数据集中，实验使用的`DenseNet`有三个`dense block`，每个块的层数相等。在第一个`dense block`之前，对输入图像进行一个带有16（或者是`DenseNet-BC`增长率两倍）个输出通道的卷积操作。对于卷积核大小为 3 x 3 的卷积层，输入的每一侧都用一个像素进行零填充以修正特征图尺寸。在两个连续的`dense block`之间使用一个1 x 1 的卷积接着一个 2 x 2 的池化层组成的过渡层。在最后一个`dense block`，使用一个全局平均池化层和一个`softmax`函数。在这三个`dense block`中的特征图分别为 32 x 32、 16  x 16和8 x 8。
+
+基本的`DenseNet`架构使用了以下的参数配置：
+
+* L = 40, k=12
+* L = 100, k=12
+* L = 100, k=24
+
+对于`DenseNet-BC`，使用了以下的参数：
+
+* L = 100, k=12
+* L = 250, k=24
+* L = 190, k=40
+
+在`ImageNet`数据集的实验中，使用了`DenseNet-BC`结构，输入图像尺寸为 224 x 224，`dense block`有4个。初始的卷积层包含 2k 个步长为2的7 x 7卷积；其他层的特征图数量遵循设置 $k$。`ImageNet`配置如[Table 1](#tab-1) 所示
+
+<div id="tab-1"></div>
+
+![](img/tab1.png)
+
+## 实验
+
+### 数据集
+
+#### CIFAR
+
+训练集-50, 000张图片，测试集10, 000张图片，从训练集中选 5,000 张图片作为验证集。
+
+* 使用了标准的数据增强，镜像，平移等
+* 预处理使用了标准化
+
+#### SVHN
+
+训练集 73,257张图片，测试集26,032图片，还有531,131张图片作为额外的训练，从训练集中挑选6,000张图片作为验证集
+
+* 没有使用任何数据增强
+
+#### ImageNet
+
+训练集使用了1.2m张图片，50,000张图片作为验证
+
+* 使用了标准的数据增强
+* 在测试的使用应用了`single-crop`和`10-crop`
+
+### 训练
+
+* 使用的SGD方法训练
+* **CIFAR**
+  * batch size 64
+  * epoch 300
+* **SVHN**
+  * batch size 64
+  * epoch 40
+* 初始学习率设置为0.1，在50%和75%训练进度除以10
+* **ImageNet**
+  * epoch 90
+  * batch size 256
+  * lr 0.1, 在30和60 epoch除以10
+
+### 结果
+
+**CIFAR**和**SVHN**主要的结果如[table 2](#tab-2)所示
+
+<div id="tab-2"></div>
+
+![](img/tab2.png)
+
+在**ImageNet**分类的结果和`ResNet`的对比如[table 3](#tab-3)和[Figure 4](#fig-4)所示。
+
+<div id="tab-3"></div>
+
+<img src="img/tab3.png" style="zoom:50%;" />
+
+<div id="fig-4"></div>
+
+![](img/fig4.png)
 
 ## 参考
 
